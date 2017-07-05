@@ -1,0 +1,18 @@
+version: '2'
+services:
+  db:
+     image: mysql:5.7
+     restart: always
+     environment:
+      - MYSQL_ROOT_PASSWORD=machine
+      - MYSQL_DATABASE=demo
+      - MYSQL_USER=demo
+      - MYSQL_PASSWORD=demo
+     ports:
+       - 3306:3306
+     volumes:
+       - ./my.cnf:/etc/mysql/conf.d/my.cnf
+       - db_data:/var/lib/mysql
+
+volumes:
+  db_data:       
